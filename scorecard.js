@@ -1,5 +1,3 @@
-// Q1 print the result 
-// npm i request jsdom 
 const request = require('request');
 const fs = require("fs");
 const path = require("path");

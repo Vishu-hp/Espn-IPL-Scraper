@@ -1,5 +1,3 @@
-// Q1 print the result 
-// npm i request jsdom 
 const request = require('request');
 const fs = require("fs");
 const jsdom = require("jsdom");
@@ -10,7 +8,7 @@ function AllMatchPageExecutor(url) {
 }
 function cb(error, response, body) {
     if (error) {
-        console.log('error:', error.message); // Print the error message
+        console.log('error:', error.message); 
     } else if (response && response.statusCode == 404) {
         console.log("Page not found");
     } else {
@@ -21,10 +19,7 @@ function cb(error, response, body) {
 }
 function extractData(body) {
     const JSDOM = jsdom.JSDOM;
-    // pass to newJSDOM 
-    let dom = new JSDOM(body);
-    // 2. // no meaning 
-    // document represent the whole html page 
+    let dom = new JSDOM(body); 
     let document = dom.window.document;
     let matchBoxes = document.querySelectorAll(".ds-flex.ds-mx-4.ds-pt-2.ds-pb-3.ds-space-x-4.ds-border-t.ds-border-line-default-translucent")
     // for (let i = 0; i < matchBoxes.length; i++) {
@@ -55,7 +50,7 @@ function requestSender(matchBoxes, n) {
     request(scoreCardLink, reqcb);
     function reqcb(error, response, body) {
         if (error) {
-            console.log('error:', error.message); // Print the error message
+            console.log('error:', error.message); 
         } else if (response && response.statusCode == 404) {
             console.log("Page not found");
         } else {

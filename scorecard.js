@@ -7,12 +7,8 @@ const helperObj = require("./helper");
 
 function extractData(body) {
     const JSDOM = jsdom.JSDOM;
-    // pass to newJSDOM 
-    let dom = new JSDOM(body);
-    // 2. // no meaning 
-    // document represent the whole html page 
+    let dom = new JSDOM(body); 
     let document = dom.window.document;
-    // result
     let output = document.querySelectorAll(".ds-text-compact-xxs.ds-p-2.ds-px-4 p>span");
     let resultElem = output[0];
 

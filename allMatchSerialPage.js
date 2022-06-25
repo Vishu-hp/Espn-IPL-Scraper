@@ -22,16 +22,7 @@ function extractData(body) {
     let dom = new JSDOM(body); 
     let document = dom.window.document;
     let matchBoxes = document.querySelectorAll(".ds-flex.ds-mx-4.ds-pt-2.ds-pb-3.ds-space-x-4.ds-border-t.ds-border-line-default-translucent")
-    // for (let i = 0; i < matchBoxes.length; i++) {
-    //     let curMatch = matchBoxes[i];
-    //     let allAnchors = curMatch.querySelectorAll("a");
-    //     let scoreCardAnchor = allAnchors[2];
-    //     let link = scoreCardAnchor.getAttribute("href");
-    //     let scoreCardLink = "https://www.espncricinfo.com" + link;
-    //     console.log(scoreCardLink);
-    // scoreCardObj.scoreCardFn(scoreCardLink);
-
-    // }
+   
     requestSender(matchBoxes, 0);
 
     console.log("```````````````````````````````````````````````");

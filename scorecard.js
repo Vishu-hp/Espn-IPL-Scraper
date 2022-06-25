@@ -13,7 +13,7 @@ function extractData(body) {
     let resultElem = output[0];
 
     let res = resultElem.textContent;
-    // console.log("result :", res);
+    
     let otherContentElem = document.querySelector(".ds-text-tight-m.ds-font-regular.ds-text-ui-typo-mid");
     let otherContent = otherContentElem.textContent;
 
@@ -48,12 +48,11 @@ function extractData(body) {
 function processTeam(teamELement, currTeam, opponentTeam, result, otherDetails) {
     // it will print all the stats of it's player
     let allRowswithextras = teamELement.querySelectorAll("tbody tr.ds-border-b.ds-border-line.ds-text-tight-s");
-    // console.log(allRowswithextras.length);
+    
     for (let i = 0; i < allRowswithextras.length; i++) {
-        // required rows -> remove extra rows 
         let cRow = allRowswithextras[i];
         let cols = cRow.querySelectorAll("td");
-        // console.log(cols.length)
+        
         if (cols.length == 8) {
             let name = cols[0].textContent.trim();
             let runs = cols[2].textContent;
@@ -75,12 +74,10 @@ function processTeam(teamELement, currTeam, opponentTeam, result, otherDetails) 
     console.log("``````````````````````````````````````````````````");
 }
 function dataOrganizer(teamName, playerName, dataObj) {
-    // folder will not be present 
-    // folder will be present
     const teamPath = path.join(__dirname, "ipl", teamName);
 
     helperObj.dirCreater(teamPath);
-    // file will not be present
+    
     const playerPath = path.join(teamPath, playerName + ".xlsx");
 
     helperObj.fileHandler(playerPath, dataObj);

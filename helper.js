@@ -7,21 +7,19 @@ function dirCreater(inputPath) {
     if (isPresent == false) {
         fs.mkdirSync(inputPath);
     } else {
-        // console.log(inputPath, " already present ")
+        console.log(inputPath, " already present ")
     }
 }
 function fileHandler(inputPath, dataObj) {
     let isFilePresent = fs.existsSync(inputPath);
     let arr = [];
     if (isFilePresent == false) {
-        // fileCreater(inputPath, dataObj)
         arr.push(dataObj);
         excelWriter(inputPath, arr);
     } else {
         arr = excelReader(inputPath);
         arr.push(dataObj);
         excelWriter(inputPath, arr);
-        // fileUpdater(inputPath, dataObj);
     }
 }
 // JSON.stringify -> write 
@@ -37,9 +35,8 @@ function fileUpdater(playerPath, dataObj) {
     let arr = JSON.parse(dataBuffer);
     // JSON entry add
     arr.push(dataObj);
-    // 
+    
     fs.writeFileSync(playerPath, JSON.stringify(arr));
-    // console.log("entry updated ", path.basename(playerPath));
 }
 function excelReader(filePath) {
     // file -> read -> workbook
@@ -51,8 +48,6 @@ function excelReader(filePath) {
     return ans;
 }
 function excelWriter(filePath, json) {
-    // console.log(xlsx.readFile(filePath));
-    // empty workbook
     let newWB = xlsx.utils.book_new();
     //  worksheet   
     let newWS = xlsx.utils.json_to_sheet(json);
